@@ -75,9 +75,9 @@ public class VehicleDiag extends DiagBase {
 
         for (DiagBase data : dataList) {
             if (data.error) {
-                errorDataList.add(data.summary());
+                errorDataList.add(data.id);
             } else {
-                correctDataList.add(data.summary());
+                correctDataList.add(data.id);
             }
         }
     }
