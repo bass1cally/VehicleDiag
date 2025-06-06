@@ -39,14 +39,12 @@ public class VehicleDiag extends DiagBase {
 
     public String getFalseData() {
         String result = "Fehlerhafte Daten:\n";
-
         // Listen leeren falls sie schon befüllt sind
         errorDataList.clear();
         int errorCounter = 0;
-
         for (DiagBase data : dataList) {
             if (data.error) {
-                errorDataList.add(data.id);
+                errorDataList.add(data.summary());
                 errorCounter++;
             }
         }
@@ -62,7 +60,7 @@ public class VehicleDiag extends DiagBase {
         correctDataList.clear();
         for (DiagBase data : dataList) {
             if (!data.error) {
-                correctDataList.add(data.id);
+                correctDataList.add(data.summary());
                 correctCounter++;
             }
         }
@@ -77,9 +75,9 @@ public class VehicleDiag extends DiagBase {
 
         for (DiagBase data : dataList) {
             if (data.error) {
-                errorDataList.add(data.id);
+                errorDataList.add(data.summary());
             } else {
-                correctDataList.add(data.id);
+                correctDataList.add(data.summary());
             }
         }
     }

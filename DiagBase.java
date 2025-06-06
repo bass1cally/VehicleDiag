@@ -16,6 +16,11 @@ public class DiagBase {
     }
 
     protected String summary() {
-        return "Vehicle with the id " + id + " at " + timestamp + " has the following error: " + error;
+        if(error){
+            return "Vehicle with the id " + id + " at " + timestamp + " has an error";
+        } else {
+            return "Vehicle with the id " + id + " at " + timestamp + " has no error";
+        }
+
     }
 }
